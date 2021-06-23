@@ -1,0 +1,12 @@
+gui:
+  theme:
+    lightTheme: true # I use light terminal
+    activeBorderColor:
+      - blue
+      - bold
+    inactiveBorderColor:
+      - black
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - reverse
