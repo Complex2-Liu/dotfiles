@@ -1,0 +1,110 @@
+# environment variables configuration
+env:
+  TERM: xterm-256color
+
+# window configuration
+window:
+  # we don't need dimension and position, since we have yabai
+  # dimension:
+  # position:
+  padding:
+    x: 15
+    y: 15
+
+  # Spread additional padding evenly around the terminal content(unknown function)
+  # dynamic_padding: false
+
+  # neither borders nor title bar
+  decorations: none
+
+  # Startup Mode (changes require restart)
+  # when you open a new terminal, it is a window,
+  # without being maximized or fullscreen
+  startup_mode: Windowed
+
+  # we don't need window title
+  # title:
+  # dynamic_title:
+
+  # sorry, I don't the following notion
+  # Window class
+  # class:
+  #   instance:
+  #   general:
+  # GTK theme variant
+  # gtk_theme_variant:
+
+# scrolling configuration
+scrolling:
+  # Maximum number of lines in the scrollback buffer
+  history: 10000
+  multiplier: 3
+
+# font configuration
+font:
+  # I use Hack Nerd Font
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+  bold_italic:
+    family: Hack Nerd Font
+    style: Bold Italic
+  size: 14
+  # offset is the extra space around each character
+  # "offset.y" modify the line spacing
+  # "offset.x" modify the letter spacing
+  offset:
+    # x: 0
+    y: 2
+  # Glyph offset determines the locations of the glyphs within their cells with the default being at the bottom
+  # increasing `x` moves the glyph to the right
+  # increasing `y` moves the glyph upward.
+  # glyph_offset:
+  #   x: 0
+  #   y: 0
+
+# obvious meaning
+draw_bold_text_with_bright_colors: true
+
+# colors
+colors:
+  # Default colors, including bg and fg
+  primary:
+    foreground: '#000000'
+    background: '#FCF5E5' # parchment
+
+  # Normal colors
+  normal:
+    black:   '#0F0000' # dual with white
+    red:     '#CC0000' # 80% red
+    green:   '#228B22' # forest green
+    yellow:  '#F08000' # tangerine
+    blue:    '#0000CC' # 80% blue
+    magenta: '#5D3FD3' # iris
+    cyan:    '#008080' # teal
+    white:   '#FFFFF0' # ivory
+
+  # Bright colors
+  bright:
+    black:   '#000000' # dual with white
+    red:     '#D2042D' # cherry
+    green:   '#00A36C' # jade
+    yellow:  '#FF7518' # pumpkin orange
+    blue:    '#0437F2' # ultramarine
+    magenta: '#7F00FF' # violet
+    cyan:    '#3AA8C1' # Moonstone
+    white:   '#FFFFFF' # white
+
+# obvious meaning
+background_opacity: 1
+
+key_bindings:
+  - { key: V, mods: Command, action: Paste    }
+  - { key: C, mods: Command, action: Copy     }
+  - { key: Q, mods: Command, action: Quit     }
