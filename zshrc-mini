@@ -1,0 +1,19 @@
+# minimal zshrc template
+
+autoload -U colors && colors # Load colors
+#color prompt
+PS1="%B%{$fg[green]%}[%{$fg[red]%}%n%{$fg[yellow]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[green]%}]%{$reset_color%}$%b "
+
+# ls color(for linux)
+alias ls='ls --color=auto'
+# ls color(for macos)
+# export CLICOLOR=1
+
+# basic alias
+alias vim='nvim'
+alias lg='lazygit'
+
+# syntax-highlighting plugin; should be last(for linux)
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# syntax-highlighting plugin; should be last(for macos)
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
