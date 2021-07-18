@@ -1,0 +1,10 @@
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+fcitx &
+
+xrdb -merge ~/.Xresources
+xset r rate 200 30
+source ~/.xprofile
+exec dwm
+
