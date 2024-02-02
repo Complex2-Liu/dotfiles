@@ -47,6 +47,28 @@ function uninstall_git()
     fi
 }
 
+# Package: bin
+function install_bin()
+{
+    if [ ! -d "${HOME}/.local/bin" ]; then
+        warn "'${HOME}/.local/bin' doesn't exist, you may want to create it first."
+        exit 0
+    fi
+    for file in "$HOME/dotfiles/bin"/*; do
+        ln -sfT --verbose $file "${HOME}/.local/bin/$(basename $file)"
+    done
+}
+function uninstall_bin()
+{
+    for file in "$HOME/dotfiles/bin"/*; do
+        if [ -L "${HOME}/.local/bin/$(basename $file)" ]; then
+            rm --verbose "${HOME}/.local/bin/$(basename $file)"
+        else
+            warn "'${HOME}/.local/bin/$(basename $file)' not found."
+        fi
+    done
+}
+
 ##############################################################################
 # Install/uninstall packages
 ##############################################################################
@@ -55,6 +77,7 @@ function install()
 {
     case $1 in
         "git") install_git ;;
+        "bin") install_bin ;;
         *) error "Unknown package: $1" ;;
     esac
 }
@@ -63,6 +86,7 @@ function uninstall()
 {
     case $1 in
         "git") uninstall_git ;;
+        "bin") uninstall_bin ;;
         *) error "Unknown package: $1" ;;
     esac
 }

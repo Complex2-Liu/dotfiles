@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+source "$HOME/dotfiles/utils/log"
+
+dependencies=(
+    "wl-paste"
+    "oxipng"
+)
+check_dependency "${dependencies[@]}"
+
+if [ -n $1 ]; then
+    file_location="$1"
+else
+    file_location=$(wl-paste)
+fi
+
+if [ ! -e "$file_location" ]; then
+    error "File '${file_location}' does not exist."
+fi
+
+info "Start optimizing $(tput setaf 6)$(basename ${file_location})$(tput sgr0)..."
+oxipng -o max --strip safe ${file_location}
+info "DONE"
