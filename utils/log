@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+function info()
+{
+    local message=""
+    if [ -f "$1" ]; then
+        message=$(cat $1)
+    else
+        message=$1
+    fi
+    echo "[$(tput setaf 2)INFO$(tput sgr0)]: $message"
+}
+function warn()
+{
+    local message=""
+    if [ -f "$1" ]; then
+        message=$(cat $1)
+    else
+        message=$1
+    fi
+    echo "[$(tput setaf 3)WARN$(tput sgr0)]: $message"
+}
+function error()
+{
+    local message=""
+    if [ -f "$1" ]; then
+        message=$(cat $1)
+    else
+        message=$1
+    fi
+    echo "[$(tput setaf 1)ERROR$(tput sgr0)]: $message" >&2
+    exit 1
+}
+
+function check_dependency()
+{
+    local dependencies=("$@")
+    for dependency in ${dependencies[@]}; do
+        if ! command -v $dependency &> /dev/null; then
+            die "Command $dependency not found!"
+        fi
+    done
+}

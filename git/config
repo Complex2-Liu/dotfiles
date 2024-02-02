@@ -1,0 +1,17 @@
+[core]
+    pager = delta
+[user]
+    name = "Complex2-老爹"
+    email = contact@complex2math.com
+    signingkey = 75E157DED10015BDD89DB09A036CC5B0F6B5A0F5
+[init]
+    defaultBranch = main
+[commit]
+    gpgsign = true
+
+# https://dandavison.github.io/delta/
+[delta]
+    true-color = always
+    side-by-side  = true
+
+# vim: set ft=gitconfig:
